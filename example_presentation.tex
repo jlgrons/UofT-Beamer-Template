@@ -1,0 +1,103 @@
+\documentclass[14pt, t, dvipsnames, usenames]{beamer}
+
+\usepackage{listings} % Package to display code.
+\usepackage{hyperref} % Package for links.
+
+% Original style files from https://github.com/Irubataru/beamer-themes.
+% Corresponding license in sty folder.
+% Code has only been slightly edited, thanks to Irubataru!
+\usetheme{cleancode}
+
+% For having a separate image directory.
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+
+
+% Title page. 
+\title[Small Title]{Example Presentation}
+\subtitle{Subtitle}
+\author{Author}
+\institute{Department of Statistical Sciences \\ University of Toronto \\  \includegraphics[scale=0.05]{uoft_logo.png}}
+\date{\small{July 19, 2021}}
+
+\lstset{
+  basicstyle=\scriptsize\ttfamily, 
+  keywordstyle=\color{OliveGreen},
+  identifierstyle=\color{RoyalBlue}, 
+  commentstyle=\color{Brown},  
+  morekeywords={shared_ptr,make_shared}
+}
+
+\begin{document}
+
+
+%%%
+\begin{frame}[plain]
+  \maketitle
+\end{frame}
+
+
+%%%
+\begin{frame}{Example Outline}
+
+  \begin{enumerate}
+    \item First topic
+    \item Second topic
+    \item Third topic
+  \end{enumerate}
+  
+  \begin{itemize}
+      \item[\bulletmark{1}] Fancier bullets with numbers. 
+      \item[\bulletmark{2}] This code needs to be cleaned up.
+  \end{itemize}
+\end{frame}
+
+
+%%%
+\begin{frame}\frametitle{Example Blocks}
+  
+  \begin{block}{}
+    A block without a title
+  \end{block}
+
+  \begin{block}{Block Title}
+    A block with a title
+  \end{block}
+  
+  \begin{alertblock}{}
+    An alertblock without a title
+  \end{alertblock}
+
+  \begin{alertblock}{Alertblock Title}
+    An alertblock with a title
+  \end{alertblock}
+
+\end{frame}
+
+
+%%%
+\begin{frame}\frametitle{Example Quote}
+
+  \begin{quoteblock}{quoteblock title}[Author of quote [ref]]
+    \begin{quote}\footnotesize
+      Here is an example quote
+    \end{quote}
+  \end{quoteblock}
+
+\end{frame}
+
+
+%%% 
+\begin{frame}{Acknowledgement}
+
+This presentation theme came from cleancode in:
+
+\vspace{5mm}
+\small{\url{https://github.com/Irubataru/beamer-themes}}
+
+
+\vspace{5mm}
+Check out this repo for more great themes!
+\end{frame}
+
+\end{document}
