@@ -1,0 +1,69 @@
+% -----------------------------------------------------------------------------
+% Beamer theme: cleancode
+% Copyright (c) 2019-2021 Jonas R. Glesaaen (jonas@glesaaen.com)
+% -----------------------------------------------------------------------------
+
+% Requirement
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemecleancode}
+\RequirePackage{tikz}
+\RequirePackage{pgfopts}
+
+\pgfkeys{/cleancode/.cd,
+  .search also={
+    /cleancode/inner,
+  }
+}
+
+\usetikzlibrary{positioning, calc}
+
+% Settings
+\useinnertheme{cleancode}
+\usecolortheme{cleancode}
+\usefonttheme{cleancode}
+
+% Various
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+
+% Added 7.19.21.  Option for fancy bullets.
+% Comes from: https://tex.stackexchange.com/questions/72813/writing-inside-a-ball-in-a-itemize-enumerate-in-beamer.
+\def\bulletmark#1{%
+\begin{tikzpicture}[baseline,%
+    terminal/.style={ 
+    % The shape is a rectangle with rounded corners
+    rectangle,minimum size=6,rounded corners=3.8, 
+    thin,draw=black!50,       % the width and color of the border 
+    fill=coolblack,             % the fill color
+            font=\scriptsize\bfseries,% the font size, possibly family
+    scale=0.6         % scaling of the resulting drawing
+}] 
+\node [terminal] at (0,0.1) {\color{white} #1};
+\end{tikzpicture} 
+}
+
+% Changed 7.19 from square bullet.
+\setbeamertemplate{items}[]
+\setbeamertemplate{sections/subsections in toc}[square]
+
+
+% Added 7.19.21 for line under the title.
+\setbeamertemplate{frametitle}{%
+    \usebeamerfont{frametitle}\insertframetitle%
+    \vphantom{g}% To avoid fluctuations per frame
+    %\hrule% Uncomment to see desired effect, without a full-width hrule
+    \par% <-- added
+    \hspace*{-\dimexpr0.5\paperwidth-0.5\textwidth}% <-- calculation of left margin width
+    \rule[0.5\baselineskip]{\paperwidth}{0.4pt}%
+}
+
+
+
+\ProcessPgfOptions{/cleancode}
+
+
+
+
+
+
